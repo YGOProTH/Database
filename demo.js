@@ -24,7 +24,7 @@ var carddata = {
 	var webdb = JSON.parse(body) */
 	//console.log(webdb[1].name)
 	// var dbinfo = webdb[6999]
-	var dbinfo = dbcards[6999]
+	var dbinfo = dbcards[6999] // Sample Card Value
 	var check = dbinfo.type
 	carddata.level = functions.parselevel(dbinfo.level).level
 	carddata.lscale = functions.parselevel(dbinfo.level).lscale
@@ -36,7 +36,7 @@ var carddata = {
 /*   }
 }) */
 
-function TextConvert(amount,hex) { // This is 2nd
+function TextConvert(amount,hex) { // Greedy Algorithm to divide Hex groups
 		var diff = []
 		var total = 0;
 		var tempkey = functions.reverse(Object.keys(hex))
@@ -54,7 +54,7 @@ function TextConvert(amount,hex) { // This is 2nd
   return diff;
 };
 
-function TextParse(info) { // This is 2nd
+function TextParse(info) {
 Object.keys(dbdesc).forEach(function(num) { // Loop through Type, Attribute, and Race to readable text
 		var check = info[num]
 		var dbdata = []
