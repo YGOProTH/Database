@@ -1,18 +1,34 @@
 exports.reverse = function reverse(a) {
-    var temp = a
-    var i = 0;
-    var j = a.length - 1;
+    "use strict";
+    var temp = a,
+        i = 0,
+        j = a.length - 1,
+        x;
+    
     while (i < j) {
-        var x = a[i];
+        x = a[i];
         a[i] = a[j];
         a[j] = x;
         i++;
         j--;
     }
     return a;
-}
+};
 
-exports.parselevel = function parselevel(rawlevel) {
+exports.parselevel = function parselevel(lvl) {
+    "use strict";
+    var cd = {
+            level: 0,
+            lscale: 0,
+            rscale: 0
+	    };
+    cd.level = lvl & 0xff;
+    cd.lscale = (lvl >> 24) & 0xff;
+    cd.rscale = (lvl >> 16) & 0xff;
+    return cd;
+};
+
+/* exports.parselevel = function parselevel(rawlevel) {
 var cardinfo = {
 lscale: "",
 rscale: "",
@@ -40,4 +56,5 @@ cardinfo.level = parseInt(hex.substring(6, 7), 16)
 //alert(hex.substring(0, 1)+" and "+hex.substring(2, 3)+" and "+hex.substring(6, 7))
 //alert(cardinfo.lscale+" and "+cardinfo.rscale)
 return cardinfo;
-};
+}; */
+
