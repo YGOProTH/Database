@@ -7,6 +7,7 @@ var dbcards = require("./cards.json");
 //var request = require('request'); //https://www.npmjs.com/package/request
 //var remotefile = 'https://raw.githubusercontent.com/Bromantic/YGOPro-Web/master/cards.json'
 var dbdesc = require("./desc/cardlibs.js"); // Card Library
+//var setname = require("./desc/setcodes.js"); 
 var functions = require("./libs/userfunctions.js"); // Custom Functions
 var carddata = {
         type: "",
@@ -27,15 +28,17 @@ var carddata = {
       var webdb = JSON.parse(body) */
     //console.log(webdb[1].name)
     // var dbinfo = webdb[6999]
-var dbinfo = dbcards[2]; // Sample Card Value
+ 
+var dbinfo = dbcards[1855]; // Sample Card Value
+  
     //var dbinfo = dbcards[6999] // Sample Card Value
 TextUpdate(dbinfo);
 var check = dbinfo.type;
 carddata.level = functions.parselevel(dbinfo.level).level;
 carddata.lscale = functions.parselevel(dbinfo.level).lscale;
 carddata.rscale = functions.parselevel(dbinfo.level).rscale;
+carddata.setcode = getSetname(dbinfo.setcode);
 TextParse(dbinfo);
-    //console.log(dbdata)
 console.log(carddata);
     /*   }
     }) */
@@ -84,8 +87,6 @@ function TextParse(info) {
         if (dbdata.join('/') === "") {
             carddata[num] = "None";
         };
-        //console.log(carddata[num])
-        console.log(carddata.setcode)
 
     });
 };
@@ -106,3 +107,36 @@ function TextUpdate(info) { // This is 2nd
         setcode: ""
     }
 };
+
+function getSetname(sc) {
+    'use strict';
+    var setname = require("./desc/setcodes.js"); 
+    var i,
+        formatsetnames = [],
+        setnames = [],
+        setcodes = [ sc & 0xffff,
+            sc >> 16 & 0xffff,
+            sc >> 32 & 0xffff,
+            sc >> 64 & 0xffff],
+        usetcodes = setcodes.filter(function (item, pos) {
+            setnames.push(setname.setcodes[item])
+        });
+for (i = 0; 4 > i; i++) {
+    if (i === 0) {
+        formatsetnames.push(setnames[i])
+    }
+    if (setnames[0] !== setnames[i]) {
+        formatsetnames.push(setnames[i])
+    }
+}
+ if (formatsetnames.length > 1) {
+       for (i = 0; formatsetnames.length > i; i++) {
+    if (formatsetnames[i] === "None") {
+        formatsetnames.splice(i, i);    
+    }
+    
+}
+    }
+//console.log(formatsetnames)
+return formatsetnames;
+}

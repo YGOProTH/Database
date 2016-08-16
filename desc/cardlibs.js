@@ -1,3 +1,9 @@
+exports.format = {
+    1: "OCG",
+    2: "TCG",
+    3: "TCG/OCG",
+    4: "Anime"
+};
 exports.type = {
     0x1 : 'Monster',
     0x2 : 'Spell',

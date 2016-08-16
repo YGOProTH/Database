@@ -1,4 +1,5 @@
-exports.setcode = {
+exports.setcodes = {
+0x0:"None",
 0x1:"Ally of Justice",
 0x2:"Genex",
 0x1002:"R-Genex",
