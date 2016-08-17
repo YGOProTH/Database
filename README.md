@@ -1,6 +1,16 @@
 # Database
 Project to create a stable card database to replace the [Yu-Gi-Oh Wikia](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) for YGOPro
 
+# For Developers/Contributors
+Currently, the code is a real mess due to learning and lack of experience in Javascript and NODEJS. What is currenlty working and to a degree understandable:
+
+* Entire /libs folder
+* Entire /desc folder
+* Entire /dbs folder
+* Entire /cdbs folder
+* Pre-converted sample databases
+* Existing databases in SQlite format
+
 
 # Current Capabilities
 * Can read any official YGOPro database and convert it to a portable JSON format.
