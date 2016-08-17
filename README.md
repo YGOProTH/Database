@@ -1,3 +1,6 @@
+# Status
+Currently files offline until more committers and learning HTML/JQuery. Any questions or suggestionss, contact [Bromantic] (https://github.com/Bromantic)
+
 # Database
 Project to create a stable card database to replace the [Yu-Gi-Oh Wikia](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) for YGOPro
 
