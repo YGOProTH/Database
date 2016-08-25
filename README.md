@@ -1,5 +1,7 @@
 # Status
-Currently files offline until more committers and learning HTML and a top layer [possibly Express.js]. Any questions or suggestions, contact [Bromantic] (https://github.com/Bromantic)
+Code is currently a mess due to learning and immediate focus on functionality while learning. The main files ATM are js/temp.js, Downloader.js, filereading.js, libs/userfunctions.js
+
+Any questions or suggestions, contact [Bromantic] (https://github.com/Bromantic)
 
 # Database
 Project to create the next Google for Yugioh.
