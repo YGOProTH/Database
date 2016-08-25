@@ -2,7 +2,7 @@
 Currently files offline until more committers and learning HTML and a top layer [possibly Express.js]. Any questions or suggestions, contact [Bromantic] (https://github.com/Bromantic)
 
 # Database
-Project to create a stable card database to replace the [Yu-Gi-Oh Wikia](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) for YGOPro
+Project to create the next Google for Yugioh.
 
 # For Developers/Contributors
 Currently, the code is a real mess due to learning and lack of experience in Javascript and NODEJS. What is currenlty working and to a degree understandable:
@@ -11,6 +11,7 @@ Currently, the code is a real mess due to learning and lack of experience in Jav
 * Entire /desc folder
 * Entire /dbs folder
 * Entire /cdbs folder
+* Entire /views folder
 * Pre-converted sample databases
 * Existing databases in SQlite format
 
@@ -20,18 +21,22 @@ Currently, the code is a real mess due to learning and lack of experience in Jav
 * Can read any remote YGOPro database in JSON form.
 * Can retrieve and convert all card data into a readable format.
 * Converts all YGOPro databases in the /cdbs folder to the /dbs folder in JSON format.
+* Can display cards on-page [you need your own images. CardID.jpg]
+* Can search individual databases
 
 ##Current Issues
 
 * Missing a GUI
 * Needs to finish Functions file
 * ~~Out of memory when Setcode library is added.~~
+* Breaks when URL is manually edited outside it's purpose.
 
 ##To do
 
-* Create a web-page
+* ~~Create a web-page~~
+* Add Strings/Database specific resources
 * Add Web UI
-* Add Web-based Card Manager
+* Add Web-based Card Managers
 
 * Optimize code for speed and performance
 
@@ -46,4 +51,4 @@ Special thanks goes to [Buttys](https://github.com/Buttys), [Access Denied](http
 
 **Access Denied** - Donating code snippets, helping with code, providing resources and tools to develop better Javascript.
 
-The end result is a Wikia-style centralized database resource for all YGOPro services and constantly updated by the community.
+The end result is a central hub that can search the official TCG Konami Database, the Wikia, and YGOpro databases, in addition to displaying them.
