@@ -1,0 +1,201 @@
+@charset "utf-8";
+
+@import "CardSearchCondition.css";
+
+/*----card_frame----*/
+
+#card_frame {
+	width:214px;
+	height:312px;
+	border:solid 1px #fff;
+	margin-bottom:5px;
+}
+
+#card_frame img{
+	 width:214px;
+	 height:312px;
+}
+
+/*----/card_frame----*/
+
+/*----thumbnail----*/
+#thumbnail{
+	width:210px;
+	padding-left:2px;
+}
+
+#thumbnail img{
+	margin:0 1px;
+	width:32px;
+	height:46px;
+	border:solid 2px #ddd;
+	cursor:pointer;
+}
+
+#thumbnail img.current{
+	 border:solid 3px #888;
+}
+
+/*----/thumbnail----*/
+
+
+/*----details----*/
+
+#details{
+	font-size:15px;
+	width:510px;
+}
+
+#details tr td{
+	padding:0;
+}
+
+#details .item_box {
+	position:relative;
+	background:#fff;
+	border:solid 2px #555;
+	text-align:left;
+	padding:5px 10px;
+	border-radius:5px;
+	height:22px;
+	line-height:1.6em;
+}
+
+	#details .item_box .item_box_title{
+		position:absolute;
+		left:10px;
+		top:5px;
+	}
+
+	#details .item_box .item_box_value{
+		position:absolute;
+		right:10px;
+	}
+
+#details .item_box_text {
+	position:relative;
+	background:#fff;
+	border:solid 2px #555;
+	text-align:left;
+	padding:5px 10px;
+	border-radius:5px;
+	line-height:1.5em;
+}
+
+#details div.forbidden_limited {
+	margin:5px 0;
+	text-align:center;
+}
+
+/*----/details----*/
+
+
+/*------to_QandA------*/
+
+#to_QandA{
+	display:block;
+	height:70px;
+	line-height:1.5em;
+	width:180px;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	text-align:center;
+	background:url(../image/parts/btn_box_yellow.png) no-repeat;
+}
+
+	#to_QandA b{
+		display:block;
+		padding-top:14px;
+	}
+
+		#to_QandA:hover{
+			background-position:right top;
+			text-decoration:none;
+		}
+
+		#to_QandA:visited{
+			text-decoration:none;
+		}
+
+/*------/to_QandA------*/
+
+/*----user_box----*/
+
+#user_box {
+	width:200px;
+	border:solid 2px #555;
+	background-color:#fff;
+	padding:3px;
+	border-radius: 5px;
+	margin-bottom:10px;
+}
+
+	#user_box #message {
+		display:none;
+		color:#ff6633;
+		padding:8px;
+	}
+
+	#user_box .inner_box {
+		background-color:#888;
+		color:#fff;
+		padding:10px;
+	}
+
+/*----/user_box----*/
+
+/*----pack_list----*/
+
+#pack_list{
+	background-color:#888;
+	border:solid 2px #555;
+	/* 2014.01対応 コンテンツ幅調整
+	   2014.02対応 コンテンツ幅再調整 */
+	/*margin:0 6px 30px 6px;*/
+	margin-bottom:30px;
+}
+
+	#pack_list table {
+		width:100%;
+		margin:0 auto;
+		border-collapse: collapse;
+	}
+
+		#pack_list table tr{
+			height:35px;
+			min-height:35px;
+		}
+
+		#pack_list table tr.row{
+			background:#fff url(../image/parts/list_style_line_bk.png) center repeat-x;
+			cursor:pointer;
+		}
+
+			#pack_list table tr.row:hover{
+				/*background:#eadff4;*/
+				background:#6ec0ff;
+				color: #fff;
+			}
+
+			#pack_list table tr th,
+			#pack_list table tr td{
+				padding: 3px;
+			}
+
+			#pack_list table tr th{
+				text-align:left;
+				color:#fff;
+				padding-left:10px;
+			}
+
+			#pack_list table tr td a{
+				text-decoration:none;
+			}
+
+			#pack_list  tr td a:hover{
+				text-decoration:underline;
+			}
+
+/*----/pack_list----*/
+
