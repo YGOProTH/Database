@@ -28,7 +28,7 @@ Currently, the code is a real mess due to learning and lack of experience in Jav
 
 ##Current Issues
 
-* Missing a GUI
+* ~~Missing a GUI~~
 * Needs to finish Functions file
 * ~~Out of memory when Setcode library is added.~~
 * Breaks when URL is manually edited outside it's purpose.
@@ -37,8 +37,11 @@ Currently, the code is a real mess due to learning and lack of experience in Jav
 
 * ~~Create a web-page~~
 * Add Strings/Database specific resources
-* Add Web UI
+* ~~Add Web UI~~
 * Add Web-based Card Managers
+* Add Wikia Integration
+* Add Official Konami Database Integration
+* Add Upload cdb functionality for developers
 
 * Optimize code for speed and performance
 
