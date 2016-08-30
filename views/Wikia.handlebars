@@ -1,0 +1,79 @@
+<head>
+<link rel="stylesheet" type="text/css" href="/../css/carddetails.css">
+</head>
+<body>
+
+ <div class="searchform">
+    <form action="/search" method="post">
+    Card Name: <input type="text" id="cardInput"
+    style="font-size:15px" size="40" name="cardname"><br>
+    Database Name: <select name="dbname" id="dbdropdown">
+  <option value="percy">Percy</option>
+  <option value="devpro">DevPro</option>
+  <option value="salvation">Salvation</option>        
+</select>
+        <div id="buttonContainer">
+        <input type="submit" value="Search" class="submitButton">
+        </div>
+</form>
+</div>
+    
+<div id="wrapper">
+<div id="cardimage">
+    <img src="{{cardimg}}" />
+    </div>
+<div id="content">
+<div class="divTableBody">
+<div class="divTableRow">
+<div class="divTableCell"><b>ID</b></div>
+<div class="divTableCell">{{id}}</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell"><b>Format</b></div>
+<div class="divTableCell">{{format}}</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell"><b>Category</b></div>
+<div class="divTableCell">{{type}}</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell"><b>Attribute</b></div>
+<div class="divTableCell">{{attribute}}</div>
+</div>
+<div class="divTableRow">
+<div class="divTableCell"><b>Type</b></div>
+<div class="divTableCell">{{race}}</div>
+</div>
+ <div class="divTableRow">
+<div class="divTableCell"><b>Pendulum Scale</b></div>
+<div class="divTableCell">{{lscale}} / {{rscale}}</div>
+</div>
+  <div class="divTableRow">
+<div class="divTableCell"><b>Level</b></div>
+<div class="divTableCell">{{level}}</div>
+</div>
+  <div class="divTableRow">
+<div class="divTableCell"><b>ATK</b></div>
+<div class="divTableCell">{{atk}}</div>
+</div>
+  <div class="divTableRow">
+<div class="divTableCell"><b>DEF</b></div>
+<div class="divTableCell">{{def}}</div>
+</div>
+</div>
+ <div class="descTable">
+   <div class="divTableBody">
+     <div>
+       <div><b>Card Text</b></div>
+     </div>
+       <div class="divTableRow">
+           <div>{{{desc}}}</div>
+       </div>
+  </div>
+    </div>
+    </div>
+    </div>
+<!-- DivTable.com -->
+</body>
+
+
