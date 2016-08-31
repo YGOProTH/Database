@@ -1,4 +1,39 @@
 "use strict";
+exports.parseCardData = function parseCardData(thisinfo) {
+    var here = require("./userfunctions.js") // Use functions in same functions file
+    var thiscarddata = {
+        type: "",
+        attribute: "",
+        race: "",
+        level: "",
+        lscale: "",
+        rscale: "",
+        desc: thisinfo.desc,
+        atk: thisinfo.atk,
+        def: thisinfo.def,
+        name: thisinfo.name,
+        id: thisinfo.id,
+        format: "",
+        setcode: ""
+    };
+        if (thiscarddata.atk == -2) {
+		thiscarddata.atk = "?"
+    }
+    if (thiscarddata.def == -2) {
+        thiscarddata.def = "?"
+    }
+        
+    var thislevel = here.parselevel(thisinfo.level)
+    thiscarddata.level = thislevel.level
+    thiscarddata.lscale = thislevel.lscale
+    thiscarddata.rscale = thislevel.rscale
+    thiscarddata.setcode = here.getSetname(thisinfo.setcode);
+    thiscarddata.format = here.getCardData("format",thisinfo.ot);
+    thiscarddata.race = here.getCardData("race",thisinfo.race);
+    thiscarddata.attribute = here.getCardData("attribute",thisinfo.attribute);
+    return thiscarddata;
+}
+
 exports.getCardData = function getCardData(category,val) {
     var desc = require("../desc/cardlibs.js"); // Card Library
     if (desc[category][val] === undefined) {

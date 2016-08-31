@@ -1,14 +1,23 @@
-//var jQuery = require('jquery-deferred'); // npm install jquery-deferred
+var jQuery = require('jquery-deferred'); // npm install jquery-deferred
 var fs = require("fs"); //filewriting/reading library
-var dbcards = require("./cards.json");
-    //var redis = require("redis") // npm install redis
-    //client = redis.createClient();
-
-//var request = require('request'); //https://www.npmjs.com/package/request
-//var remotefile = 'https://raw.githubusercontent.com/Bromantic/YGOPro-Web/master/cards.json'
+var request = require('request'); //https://www.npmjs.com/package/request
+var SQL = require('sql.js'); // npm install sql.js
+var dbdir = __dirname + "\\db\\"
+var remotefile = 'https://raw.githubusercontent.com/Bromantic/YGOPro-Web/master/cards.json'
+var dbpath = ".\\desc\\dbs\\"
+//var db = "cards.json"
+//var dbcards = require(dbpath+db);
+//var dbcards = require("./cards.json");
 var dbdesc = require("./desc/cardlibs.js"); // Card Library
-//var setname = require("./desc/setcodes.js"); 
 var functions = require("./libs/userfunctions.js"); // Custom Functions
+var dbinfo
+
+var search = "name", 
+    query = 2,
+    db = "DevPro.cdb",//"official.cdb" //"prerelease.cdb",
+    dbcards = getcards(db),
+var search = "name"; 
+var query = 1000;
 var carddata = {
         type: "",
         attribute: "",
@@ -23,25 +32,64 @@ var carddata = {
         id: "",
         setcode: ""
     };
-    /* request(remotefile, function (error, response, body) {
-      if (!error && response.statusCode == 200) {
-      var webdb = JSON.parse(body) */
-    //console.log(webdb[1].name)
-    // var dbinfo = webdb[6999]
- 
-var dbinfo = dbcards[1855]; // Sample Card Value
+request(remotefile, function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+	var webdb = JSON.parse(body)
+	//console.log(webdb[1].name)
+	var dbinfo = webdb[query]; // Sample Card Value
   
-    //var dbinfo = dbcards[6999] // Sample Card Value
-TextUpdate(dbinfo);
-var check = dbinfo.type;
+    TextUpdate(dbinfo);
+
+getCardData(dbinfo)
+
+TextParse(dbinfo)
+
+displayCard()
+    
+  }
+})
+
+function displayCard() {
+console.log(carddata);
+}    
+    
+function getCardData(dbinfo) {
+//var check = dbinfo.type;
 carddata.level = functions.parselevel(dbinfo.level).level;
 carddata.lscale = functions.parselevel(dbinfo.level).lscale;
 carddata.rscale = functions.parselevel(dbinfo.level).rscale;
 carddata.setcode = getSetname(dbinfo.setcode);
-TextParse(dbinfo);
-console.log(carddata);
-    /*   }
-    }) */
+//TextParse(dbinfo);
+}
+
+
+//Credit goes to https://github.com/SalvationDevelopment for help with this code
+function getcards(file) {
+    var filebuffer = fs.readFileSync(__dirname+"/cdbs/"+file),
+        db = new SQL.Database(filebuffer),
+        string = "SELECT * FROM datas, texts WHERE datas.id = texts.id;",
+        texts = db.prepare(string),
+        asObject = {
+            texts: texts.getAsObject({
+                'id': 1
+            })
+        },
+        output = [],
+        row;
+
+    // Bind new values
+    texts.bind({
+        name: 1,
+        id: 2
+    });
+    while (texts.step()) { //
+        row = texts.getAsObject();
+        output.push(row);
+    }
+    db.close();
+
+    return output;
+}
 
 function TextConvert(amount, hex) { // Greedy Algorithm to divide Hex groups
     "use strict";
@@ -108,6 +156,7 @@ function TextUpdate(info) { // This is 2nd
     }
 };
 
+//Credit goes to https://github.com/SalvationDevelopment for help with this code
 function getSetname(sc) {
     'use strict';
     var setname = require("./desc/setcodes.js"); 

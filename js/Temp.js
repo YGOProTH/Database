@@ -81,7 +81,10 @@ app.post('/search', function (req, res, next) {
     //console.log(thisname);
     res.redirect(urltemplate);
     });
-
+app.get('/home', function(req, res) {
+  res.render("Home", {
+    });
+});
 app.get('/cards', function(req, res) {
 //query = req.param('name');
 //mydb = req.param('db').toLowerCase();  
@@ -94,11 +97,16 @@ webdb = libs[mydb]
 postCallback()
 
 function postCallback() {
+//console.log(webdb);
+if (webdb=== undefined) {
+       res.render("NotFound", {
+});
+    return;
+}
+    
 dbinfo = functions.getByName(webdb, query);
 
-TextUpdate(dbinfo);
-
-parseCardData(dbinfo);
+carddata = functions.parseCardData(dbinfo);
 
 functions.getType(dbinfo,carddata);
     
@@ -108,47 +116,10 @@ renderCard(carddata)
     
 
 function displayCard() {
-console.log(carddata);
+//console.log(carddata);
 res.send(carddata)
 }    
     
-function parseCardData(dbinfo,__dirname) {
-//var check = dbinfo.type;
-carddata.level = functions.parselevel(dbinfo.level).level;
-carddata.lscale = functions.parselevel(dbinfo.level).lscale;
-carddata.rscale = functions.parselevel(dbinfo.level).rscale;
-carddata.setcode = functions.getSetname(dbinfo.setcode);
-carddata.format = functions.getCardData("format",dbinfo.ot);
-carddata.race = functions.getCardData("race",dbinfo.race);
-carddata.attribute = functions.getCardData("attribute",dbinfo.attribute);
-//console.log(carddata.format);
-//TextParse(dbinfo);
-}
-
-
-function TextUpdate(info) { // This is 2nd
-    carddata = {
-        type: "",
-        attribute: "",
-        race: "0",
-        level: "",
-        lscale: "",
-        rscale: "",
-        desc: info.desc,
-        atk: info.atk,
-        def: info.def,
-        name: info.name,
-        id: info.id,
-        format: "",
-        setcode: ""
-    }
-    if (carddata.atk == -2) {
-		carddata.atk = "?"
-    }
-    if (carddata.def == -2) {
-        carddata.def = "?"
-    }
-};
     
 function renderCard(thiscard) { // This is 2nd
     console.log(thiscard.id) 
