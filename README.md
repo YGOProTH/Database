@@ -1,5 +1,5 @@
 # Database
-Project to create a stable card database to replace the [Yu-Gi-Oh Wikia](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) for YGOPro
+Project to create a stable card database to be used for Yugioh and YGOPro, including [Yu-Gi-Oh Wikia](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) and [Yu-Gi-Oh TCG](www.db.yugioh-card.com) 
 
 # For Developers/Contributors
 Currently, the code is a real mess due to learning and lack of experience in Javascript and NODEJS. What is currenlty working and to a degree understandable:
@@ -20,16 +20,18 @@ Currently, the code is a real mess due to learning and lack of experience in Jav
 
 ##Current Issues
 
-* Missing a GUI
+* ~~Missing a GUI~~
 * Needs to finish Functions file
 * ~~Out of memory when Setcode library is added.~~
 
 ##To do
 
-* Create a web-page
-* Add Web UI
+* ~~Create a web-page~~
+* ~~Add Web UI~~
 * Add Web-based Card Manager
-
+* Improve CSS
+* Fully use Snrk's Wikia API
+* Configure Access to AntiMetaMan's images
 * Optimize code for speed and performance
 
 **~~The rest of the database entries can be done, but need to resolve the memory issue first or scrap it.~~**
