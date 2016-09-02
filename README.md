@@ -2,6 +2,7 @@
 Project to create a stable card database to be used for Yugioh and YGOPro, including [Yu-Gi-Oh Wikia](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) and [Yu-Gi-Oh TCG](www.db.yugioh-card.com) 
 
 # For Developers/Contributors
+Main NodeJS file at the moment is Temp.js
 Currently, the code is a real mess due to learning and lack of experience in Javascript and NODEJS. What is currenlty working and to a degree understandable:
 
 * Entire /libs folder
