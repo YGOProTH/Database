@@ -1,4 +1,44 @@
 "use strict";
+exports.getBanlist = function getBanlist(thisurl) {
+var fs = require("fs"); //filewriting/reading library
+var request = require('request'); //https://www.npmjs.com/package/request
+var jsondir = __dirname + "/../desc/";
+//var remotefile = "https://raw.githubusercontent.com/Ygoproco/Live2016/master/lflist.conf"
+//"https://raw.githubusercontent.com/SalvationDevelopment/YGOPro-Salvation-Server/master/http/ygopro/lflist.conf"
+request(thisurl, function (error, response, body) {
+    var i,
+    banlists, 
+    parsebanlist,
+    thisban = {
+        id: "",
+        status: ""
+    },
+    banlist = [];
+  if (!error && response.statusCode == 200) {
+      banlists = body.split("\n")
+      for (i = 0; i < banlists.length; i++) {
+          parsebanlist = banlists[i].split(" ")
+          thisban.id = parseInt(parsebanlist[0])
+          thisban.status = parseInt(parsebanlist[1])
+          //console.log(thisban.status)
+      if (isNaN(thisban.id) === false) {
+         banlist.push({
+        id: thisban.id,
+        status: thisban.status
+    });
+          //console.log(thisban)
+        }
+
+    }
+      //banlist.push(thisparse)
+      fs.writeFile(jsondir + "banlist.json", JSON.stringify(banlist))
+      //console.log(banlist)
+      //console.log(i)
+  }
+  });
+
+};
+
 exports.parseCardData = function parseCardData(thisinfo) {
     var here = require("./userfunctions.js") // Use functions in same functions file
     var thiscarddata = {

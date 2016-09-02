@@ -7,10 +7,11 @@
     <form action="/search" method="post">
     Card Name: <input type="text" id="cardInput"
     style="font-size:15px" size="40" name="cardname"><br>
-    Database Name: <select name="dbname" id="dbdropdown">
-  <option value="percy">Percy</option>
-  <option value="devpro">DevPro</option>
-  <option value="salvation">Salvation</option>        
+    Database Name: <select name="dbname" id="dbdropdown"> 
+        {{#each dropdowns}}
+    <option value="{{this}}">{{this}}</option> 
+  {{/each}}
+        <option value="wikia">Wikia</option> 
 </select>
         <div id="buttonContainer">
         <input type="submit" value="Search" class="submitButton">
@@ -19,9 +20,6 @@
 </div>
     
 <div id="wrapper">
-<div id="cardimage">
-    <img src="{{cardimg}}" />
-    </div>
 <div id="content">
 <div class="divTableBody">
 <div class="divTableRow">
@@ -36,6 +34,7 @@
 <div class="divTableCell"><b>Category</b></div>
 <div class="divTableCell">{{type}}</div>
 </div>
+    {{#if attribute}}
 <div class="divTableRow">
 <div class="divTableCell"><b>Attribute</b></div>
 <div class="divTableCell">{{attribute}}</div>
@@ -44,15 +43,21 @@
 <div class="divTableCell"><b>Type</b></div>
 <div class="divTableCell">{{race}}</div>
 </div>
+    {{/if}}
+    {{#if lscale}}
  <div class="divTableRow">
 <div class="divTableCell"><b>Pendulum Scale</b></div>
 <div class="divTableCell">{{lscale}} / {{rscale}}</div>
 </div>
+    {{/if}}
+    {{#if level}}
   <div class="divTableRow">
 <div class="divTableCell"><b>Level</b></div>
 <div class="divTableCell">{{level}}</div>
 </div>
-  <div class="divTableRow">
+    {{/if}}
+    {{#if atk}}
+           <div class="divTableRow">
 <div class="divTableCell"><b>ATK</b></div>
 <div class="divTableCell">{{atk}}</div>
 </div>
@@ -60,6 +65,7 @@
 <div class="divTableCell"><b>DEF</b></div>
 <div class="divTableCell">{{def}}</div>
 </div>
+    {{/if}}
 </div>
  <div class="descTable">
    <div class="divTableBody">
@@ -67,13 +73,20 @@
        <div><b>Card Text</b></div>
      </div>
        <div class="divTableRow">
-           <div>{{{desc}}}</div>
+           <div>{{{effect}}}</div>
+           {{#if pendeffect}}
+           <br>
+            <div>{{{pendeffect}}}</div>
+            {{/if}}
        </div>
   </div>
     </div>
     </div>
     </div>
 <!-- DivTable.com -->
+    <div class="cardimagetable">
+    <img src="{{cardimg}}" id="cardimage">
+    </div>
 </body>
 
 
