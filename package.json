@@ -1,0 +1,33 @@
+{
+  "name": "Database",
+  "version": "1.0.0",
+  "description": "Project to create a stable card database to be used for Yugioh and YGOPro, including [Yu-Gi-Oh Wikia](http://yugioh.wikia.com/wiki/Yu-Gi-Oh!_Wikia) and [Yu-Gi-Oh TCG](www.db.yugioh-card.com)",
+  "main": "banlistparse.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YGOWeb/Database.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YGOWeb/Database/issues"
+  },
+  "homepage": "https://github.com/YGOWeb/Database#readme",
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "fs": "0.0.2",
+    "path": "^0.12.7",
+    "request": "^2.74.0",
+    "require-all": "^2.0.0",
+    "sql.js": "^0.3.2"
+  }
+}
